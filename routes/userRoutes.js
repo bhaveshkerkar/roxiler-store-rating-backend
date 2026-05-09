@@ -2,7 +2,6 @@ import express from "express";
 import authMiddleware from "../middlewares/authMiddleware.js";
 import roleMiddleware from "../middlewares/roleMiddleware.js";
 import {
-  fetchAllStores,
   submitRating,
   updateRating,
   searchAllStores,
@@ -19,7 +18,7 @@ router.get("/dashboard", authMiddleware, roleMiddleware("user"), (req, res) => {
   });
 });
 
-router.get("/stores", authMiddleware, roleMiddleware("user"), fetchAllStores);
+// router.get("/user/stores", fetchAllStores);
 
 router.post("/rate", authMiddleware, roleMiddleware("user"), submitRating);
 

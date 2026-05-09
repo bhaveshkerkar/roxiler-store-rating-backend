@@ -4,24 +4,24 @@ import { addRating, updateUserRating } from "../models/ratingModel.js";
 import { findUserByEmail, updatePassword } from "../models/userModel.js";
 import { comparePassword, hashPassword } from "../utils/hash.js";
 
-export const fetchAllStores = async (req, res) => {
-  try {
-    const userId = req.user.id;
+// export const fetchAllStores = async (req, res) => {
+//   try {
+//     const userId = req.user.id;
 
-    const stores = await getAllStores(userId);
+//     const stores = await getAllStores(userId);
 
-    res.status(200).json({
-      success: true,
-      count: stores.length,
-      stores,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-};
+//     res.status(200).json({
+//       success: true,
+//       count: stores.length,
+//       stores,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       success: false,
+//       message: error.message,
+//     });
+//   }
+// };
 
 export const submitRating = async (req, res) => {
   try {
