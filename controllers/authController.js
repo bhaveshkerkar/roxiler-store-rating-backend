@@ -4,9 +4,9 @@ import { generateToken } from "../utils/jwt.js";
 
 export const signup = async (req, res) => {
   try {
-    const { name, email, address, password, role } = req.body;
+    const { name, email, address, password } = req.body;
 
-    if (!name || !email || !address || !password || !role) {
+    if (!name || !email || !address || !password) {
       return res.status(400).json({
         success: false,
         message: "All fields are required",
@@ -24,7 +24,7 @@ export const signup = async (req, res) => {
 
     const hashedPassword = await hashPassword(password);
 
-    await createUser(name, email, address, hashedPassword, role);
+    await createUser(name, email, address, hashedPassword);
 
     res.status(201).json({
       success: true,

@@ -37,11 +37,11 @@ export const createUserWithRole = async (
   email,
   address,
   password,
-  role
+  role,
 ) => {
   const [result] = await pool.query(
     "INSERT INTO users (name,email,address,password,role) VALUES (?,?,?,?,?)",
-    [name, email, address, password, role]
+    [name, email, address, password, role],
   );
 
   return result;
